@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">    
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/home">Voltar</a></button>    
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body"><strong>{{titulo_body}}</strong></h1> 
+  {%if listaCadastrosNotas is not none %}
+  <h1 class="titulo-body">Lista de notas de alunos cadastrados.</h1>
+  {%if message is not none%}
+    <h5 class="titulo-body" style="color: red;"><strong>{{message}}</strong></h5>
+  {% endif %}
+    <div class="container-table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">CPF</th>
+                <th scope="col">NOME ALUNO</th>
+                <th scope="col">DISCIPLINA</th>
+                <th scope="col">NOTA</th>
+                <th scope="col">EXCLUIR</th>
+                <th scope="col">EDITAR</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr>
+                {% for nota in listaCadastrosNotas %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td class="td"><strong>{{nota[3]}}</strong></td>    
+                    <td class="td"><strong>{{nota[4]}}</strong></td>   
+                    <td class="td"><strong>{{nota[2]}}</strong></td> 
+                    <td class="td"><strong>{{nota[1]}}</strong></td>
+                    <td>
+                        <button type="button" class="btn btn-primary excluir"><a href= {{url_for( 'excluirNotas' , nota = nota[5])}} >Excluir</a></button>                            
+                    </td>  
+                    <td>
+                        <button type="button" class="btn btn-primary editar"><a href= {{url_for('editNotas', nota = nota[5])}}>Editar</a></button>  
+                    </td>                                
+                </tr>
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  {% endif %}
+</body>
+<footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+</html>

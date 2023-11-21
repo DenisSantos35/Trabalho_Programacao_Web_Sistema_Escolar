@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/">Sair</a></button>
+  </nav>
+</header>
+<body>
+    <h1 class="titulo-body"><strong>{{titulo_body}} </strong></h1> 
+    <h6 > <strong>Nome: </strong>{{searchDataStudant[2]}} </h6> 
+    <h6 > <strong>Numero CPF: </strong>{{searchDataStudant[1]}} </h6>
+    <hr> 
+    <h5 > <strong>Boletim Academico</strong></h5> 
+    <div class="container-table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">DISCIPLINA</th>
+                <th scope="col">NOTA 1</th>
+                <th scope="col">NOTA 2</th>
+                <th scope="col">NOTA 3</th>
+                <th scope="col">NOTA 4</th>
+                <th scope="col">MÉDIA</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for key, value in materias.items() %}
+                    <tr>
+                        <th scope="row">{{ value['nome'] }}</th>
+                        {% for nota in value['notas'] %}
+                            <td class="td"><strong>{{ nota }}</strong></td>
+                        {% endfor %}
+                        <td class="td">
+                            <strong>  
+                                {% if value['media'] is not none %}
+                                    {{ value['media'] }}
+                                {% else %}
+                                    {{ 0.0 }}
+                                {% endif %}
+                            </strong>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+<footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>

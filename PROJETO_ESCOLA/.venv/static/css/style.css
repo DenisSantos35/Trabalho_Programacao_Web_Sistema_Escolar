@@ -1,0 +1,282 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to right, #5F9FFA, #97CFF0, #5F9FFA);
+    color: #0c0c0c;
+    background-image: url('../image/images.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.btn-group{
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 30px;
+}
+/*navegacao do site*/
+.nav-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #000;
+    height: 90px;
+    text-align: center;
+}
+.home{
+    margin-right: 10px;
+}
+.home a{
+    color: #000;
+    text-decoration: none;
+}
+
+.home:hover{
+    color: #000;
+    background-color: rgb(192, 226, 43);
+}
+.nav-container h1, h4{
+    flex: 3;
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+.nav-container button{
+    text-align: left;
+    align-items: flex-start;
+    background-color: rgb(57, 26, 131);
+}
+
+.nav-container .voltar a{
+
+    color: #fff;
+    text-decoration: none;
+}
+h1{
+    color: #000;
+}
+
+/*conteudo body div*/
+.titulo-body{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2em;
+}
+h5{
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2em;
+}
+h6{
+    font-size: 1.5em;
+    font-weight:900 ;
+    margin-top: 10px;
+    text-align: center;
+}
+.funcionario-init{
+    background-color: blue;
+}
+
+.funcionario-init a, .aluno-init a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.aluno-init{
+    background-color: rgb(57, 26, 131);
+}
+.funcionario-init, .aluno-init{
+    border-radius: 40px;
+}
+
+.funcionario-init:hover, .aluno-init:hover{
+    background-color: rgb(192, 226, 43);
+    color: #000;
+}
+.index-container{
+    background-color: #f1f1f1;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    margin-left: 30%;
+    margin-right: 30%;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgb(0, 0, 0);
+}
+
+.index-container .cadastro{
+    background-color: rgb(99, 181, 240);
+    
+}
+.index-container .cadastro a{
+    text-decoration: none;
+    color: white;
+}
+
+.index-container .login:hover{
+    background-color: rgb(192, 226, 43);
+    color: black;
+}
+
+.index-container .cadastro:hover{
+    background-color: rgb(192, 226, 43);
+    color: black;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
+.index-container .voltar a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+   
+   
+}
+
+.card{
+    margin: 10px;
+    margin-top: auto;
+    flex: 1 0 45%; /* Adicionei flex-grow: 1 e flex-basis: 45% para permitir que os containers cresçam e ocupem até 45% da largura disponível */
+    max-height: 100%;
+    margin: 0 10px 20px 0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.card-body{
+    box-shadow: 0 10px 15px rgb(0, 0, 0);
+}
+
+.container .card-text span{
+    color: red;
+    font-weight: bold;
+}
+
+.cadastrar-aluno:hover, .cadastrar-funcionario:hover, .cadastrar-disciplina:hover, .cadastrar-nota:hover, .voltar:hover{
+    background-color: rgb(179, 179, 9);
+    color: black;
+}
+.card-body {
+    flex: 1; /* Faz com que o card-body ocupe o espaço restante na div */
+}
+.table{
+    box-shadow: 0 10px 15px rgba(0, 0, 0);
+    border-radius: 5px;
+}
+
+.card-body a {
+    margin-top: auto; /* Alinha a âncora (botão) no final da div */
+}
+
+.editar-aluno, .editar-funcionario, .editar-disciplina, .editar-notas{
+    background-color: rgb(57, 26, 131);
+}
+
+.editar-aluno:hover, .editar-funcionario:hover, .editar-disciplina:hover, .editar-notas:hover{
+    background-color: rgb(179, 179, 9);
+    color: black;
+}
+
+.container-table{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 70px;
+    
+}
+
+.container-table .col{
+    font-size: 1.8em;
+}
+
+.container-table button{
+    background-color: rgb(149, 12, 12);
+    text-decoration: none;
+    color: #fff;
+}
+
+.container-table button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.container-table .editar{
+    background-color: blue;
+    text-decoration: none;
+    color: #fff;
+}
+
+.container-table button:hover{
+    background-color: rgb(179, 179, 9);
+}
+
+.container-table button a:hover{
+    color: #000;
+    
+}
+
+.form-select{
+    margin-bottom: 10px;
+}
+
+.index-container select strong{
+    font-weight: bold;
+}
+
+.search{
+    display: flex;
+}
+.search form{
+    display: flex;
+    margin: auto;
+}
+.search form input{
+    margin-right: 10%;    
+}
+.search form button{
+    background-color: rgb(57, 26, 131);   
+    color: #fff;
+}
+.search form button:hover{
+    background-color: rgb(179, 179, 9);
+    color: #000;
+}
+footer{
+    margin-top: auto;
+    position:relative;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: #000;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+}
+
+footer p strong{
+    color: #fff;
+}
+footer p strong a{
+    color: #fff;
+}

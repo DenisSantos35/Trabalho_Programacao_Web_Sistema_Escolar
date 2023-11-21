@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary home"><a href="/home">Home</a></button>
+    <button type="button" class="btn btn-primary voltar"><a href="/editarCadastroDisciplina">Voltar</a></button>
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1> 
+
+  <div class="index-container">
+      <form action="/editarDisciplina" method="POST">
+        <div class="mb-3">
+            <label for="disciplina" class="form-label">Nome da Disciplina:</label>
+            <input type="text" class="form-control" name="disciplina" placeholder="Digite o nome da disciplina." required value={{dataDisciplina[1]}}>        
+        </div>
+        {% if error_message %}
+             <strong><p style="color: red;">{{ error_message }}</p></strong>
+        {% endif %}        
+        <div class="mb-3 form-check">
+            <input type="hidden" name="id" value="{{dataDisciplina[0]}}">            
+        </div>       
+            <button type="submit" class="btn btn-primary cadastro">Salvar</button>
+      </form>
+  </div>
+ </body>
+ <footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+</html>

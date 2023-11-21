@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/home">Voltar</a></button> 
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1> 
+
+  <div class="index-container">
+      <form action="/cadastrarFuncionario" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome:</label>
+            <input type="text" class="form-control" name="name" placeholder="Digite seu nome completo" required>        
+        </div>
+        <div class="mb-3">
+            <label for="nameLogin" class="form-label">Nome para logar:</label>
+            <input type="text" class="form-control" name="nameLogin" placeholder="Digite o nome para logar no sistema" required>        
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail:</label>
+            <input type="email" class="form-control" name="email" placeholder="Digite seu email"  required>        
+        </div>
+        <div class="mb-3">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input type="text" class="form-control" name="cpf" placeholder="Digite seu cpf" maxlength="14" required>        
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha:</label>
+          <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required minlength="6">
+          
+        </div>
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirmar senha:</label>
+            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirme sua senha" required minlength="6">
+        </div>
+        {% if error_message %}
+             <strong><p style="color: red;">{{ error_message }}</p></strong>
+        {% endif %}
+        <div class="mb-3 form-check">
+            <input type="hidden" name="user" value="Professor">            
+        </div>      
+        <button type="submit" class="btn btn-primary cadastro">Cadastrar</button>
+      
+      </form>
+  </div>
+ </body>
+ <div>
+  <footer>
+    <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+  </footer>
+ </div>
+</html>

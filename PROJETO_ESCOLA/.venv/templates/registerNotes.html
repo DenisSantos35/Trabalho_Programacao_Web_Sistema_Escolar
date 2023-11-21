@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/home">Voltar</a></button>
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1> 
+    {% if error_message2 %}
+        <strong><h3 class="titulo-body" style="color: red;">{{ error_message2 }}</h3></strong>
+    {% endif %} 
+    {% if error_message3 %}
+        <strong><h3 class="titulo-body" style="color: red;">{{ error_message3 }}</h3></strong>
+    {% endif %} 
+  <div class="index-container">
+      <form action="/CadastrarNotas" method="POST" onsubmit="return validateForm()">
+        <label for="studant" class="form-label"><strong>Aluno:</strong></label>
+        <select class="form-select" aria-label="Default select example" name="studant" id="studant">
+            <option selected value="" selected disabled><strong>Selecione o nome do aluno:</strong></option>
+            {% for aluno in listStudants %}
+                <option value={{aluno[0]}}><strong>CPF:</strong> {{aluno[1]}}, <strong>Nome:</strong> {{aluno[2]}}</option>
+            {% endfor %}
+        </select>
+        <label for="studant" class="form-label"><strong>Disciplina:</strong></label>
+        <select class="form-select" aria-label="Default select example" name="disciplina" id="disciplina">
+            <option selected value="" selected disabled><strong>Selecione a disciplina:</strong></option>
+            {%for disciplina in listaDisciplinas %}
+                <option value={{disciplina[0]}}>{{disciplina[1]}}</option>
+            {% endfor %}
+        </select>
+        <div class="mb-3">
+            <label for="nota" class="form-label"><strong>Nota:</strong></label>
+            <input type="number" class="form-control" name="nota" placeholder="Digite o nota." required min="0" max="10" step="0.1">        
+        </div>
+        {% if error_message %}
+             <strong><p style="color: red;">{{ error_message }}</p></strong>
+        {% endif %}        
+        <div class="mb-3 form-check">
+            <input type="hidden" name="user" value="Aluno">            
+        </div>       
+            <button type="submit" class="btn btn-primary cadastro">Cadastrar</button>
+      </form>
+  </div>
+  <hr>  
+  {%if listaCadastrosNotas is not none %}
+  <h1 class="titulo-body">Lista de notas de alunos cadastrados.</h1>
+    <div class="container-table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">CPF</th>
+                <th scope="col">NOME ALUNO</th>
+                <th scope="col">DISCIPLINA</th>
+                <th scope="col">NOTA</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr>
+                {% for nota in listaCadastrosNotas %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td class="td"><strong>{{nota[3]}}</strong></td>    
+                    <td class="td"><strong>{{nota[4]}}</strong></td>   
+                    <td class="td"><strong>{{nota[2]}}</strong></td> 
+                    <td class="td"><strong>{{nota[1]}}</strong></td>                               
+                </tr>
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  {% endif %}
+ </body>
+ <footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+<script>
+    function validateForm() {
+        var alunoSelect = document.getElementById('studant');
+        var disciplinaSelect = document.getElementById('disciplina');
+        if (alunoSelect.value === "" || disciplinaSelect.value === "") {
+            alert("Por favor, selecione todos os dados antes de enviar o formulário");
+            return false;
+        }
+        // O restante da lógica de validação, se necessário
+        return true;
+    }
+
+    </script>
+</html>

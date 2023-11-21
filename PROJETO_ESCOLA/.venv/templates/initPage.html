@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1>   
+  <h5>Escolha o tipo de conta que deseja logar</h5>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-danger funcionario-init"><a href="/loginProfessor">Logar Funcionário</a></button>
+        <button type="button" class="btn btn-success aluno-init"><a href="/loginAluno">Logar Aluno</a></button>
+    </div>  
+</body>
+</html>

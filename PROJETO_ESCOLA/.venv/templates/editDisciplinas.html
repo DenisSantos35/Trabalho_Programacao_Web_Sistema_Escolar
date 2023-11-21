@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">    
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/home">Voltar</a></button>    
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body"><strong>{{titulo_body}}</strong></h1> 
+  <div class="container-table">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">DISCIPLINAS</th>
+            <th scope="col">Excluir</th>
+            <th scope="col">Editar</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            {% for disciplina in listaDisciplinas %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td class="td"><strong>{{disciplina[1]}}</strong></td>
+                        <td>
+                            <button type="button" class="btn btn-primary excluir"><a href= {{url_for( 'excluirDisciplina' , disciplina = disciplina[0])}} >Excluir</a></button>                            
+                        </td>  
+                        <td>
+                          <button type="button" class="btn btn-primary editar"><a href= {{url_for('editDisciplina', disciplina = disciplina[0])}}) >Editar</a></button>  
+                      </td> 
+                                                             
+                    </tr>
+                {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</body>
+<footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+</html>

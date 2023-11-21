@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary home"><a href="/home">Home</a></button>
+    <button type="button" class="btn btn-primary voltar"><a href="/editarCadastroNotas">Voltar</a></button>
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1> 
+  <div class="index-container">
+      <form action="/editNotas" method="POST">
+        <div class="mb-3">
+            <label for="nota" class="form-label"><strong>Aluno:</strong></label>
+            <input type="text" class="form-control" name="student" required readonly value="{{dataNota[1]}}">        
+        </div> 
+        <div class="mb-3">
+            <label for="nota" class="form-label"><strong>Disciplina:</strong></label>
+            <input type="text" class="form-control" name="disciplina" required readonly value="{{dataNota[3]}}">        
+        </div> 
+        <div class="mb-3">
+            <label for="nota" class="form-label"><strong>Nota:</strong></label>
+            <input type="number" class="form-control" name="nota" placeholder="Digite o nota." required min="0" max="10" step="0.1" value="{{dataNota[5]}}">        
+        </div>
+        {% if error_message %}
+             <strong><p style="color: red;">{{ error_message }}</p></strong>
+        {% endif %}        
+        <div class="mb-3 form-check">
+            <input type="hidden" name="id" value="{{dataNota[4]}}">            
+        </div>       
+            <button type="submit" class="btn btn-primary cadastro">Salvar</button>
+      </form>
+  </div>
+ </body>
+ <footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<header>
+  <nav class="nav-container">
+    <h1>{{titulo_nav}}</h1>
+    <button type="button" class="btn btn-primary voltar"><a href="/">Voltar</a></button>
+  </nav>
+</header>
+<body>
+  <h1 class="titulo-body">{{titulo_body}}</h1> 
+
+  <div class="index-container">
+      <form action="/loginProfessor" method="post">
+        <div class="mb-3">
+          <label for="user" class="form-label">Usuario:</label>
+          <input type="text" class="form-control" name="user" placeholder="Digite o usuário funcionário academico" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha:</label>
+          <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="hidden" name="userCheck" value="Professor">
+        </div>
+        {% if error_message %}
+             <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <button type="submit" class="btn btn-primary login">Logar</button>
+      </form>
+  </div>
+</body>
+<footer>
+  <p>&copy; <Strong>GitHub: <a href="https://github.com/DenisSantos35">Denis Diogo dos Santos</a></Strong></p>
+</footer>
+</html>
